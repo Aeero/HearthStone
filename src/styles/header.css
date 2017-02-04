@@ -1,0 +1,41 @@
+header{
+  width: 100%;
+  margin: 0 auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+header.scroll{
+  background: rgba(255,255,255,.95)!important;
+  border-bottom: 1px solid #eee!important;
+}
+header.scroll ul.level1 li a{
+  color: #000;
+}
+header .header-container{
+  width: 1200px;
+  margin: 0 auto;
+}
+header .header-container>*{
+  vertical-align: middle;
+}
+header .header-logo{
+  margin-right: 150px;
+}
+header .header-sign{
+  margin-top: 20px;
+  float: right;
+}
+header .header-sign a{
+  display: inline-block;
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #e9e9eb;
+  border-radius: 4px;
+  color: #666;
+  background-color: #fff;
+  font-size: 14px;
+}
