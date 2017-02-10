@@ -1,53 +1,40 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { connect } from 'react-redux';
+// import { Link } from 'react-router';
 
+import { sider, bottom } from '../action/action';
 import '../styles/header.css';
-import Nav from './nav';
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isScroll: false
-    };
-    this.handleScroll = this.handleScroll.bind(this);
-  }
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-  handleScroll() {
-    if (window.scrollY > 100) {
-      this.setState({
-        isScroll: true
-      });
-    } else {
-      this.setState({
-        isScroll: false
-      });
-    }
+  static propTypes = {
+    curPage: React.PropTypes.string.isRequired,
+    onSideClick: React.PropTypes.func.isRequired,
+    onMoresClick: React.PropTypes.func.isRequired
   }
   render() {
-    const isScroll = this.state.isScroll;
-    let imgSrc;
-    let headerClassName;
-    if (isScroll) {
-      imgSrc = '/pc/img/new-change/new-logo.png';
-      headerClassName = 'scroll';
-    } else {
-      imgSrc = '/pc/img/new-change/new-logo2.png';
-      headerClassName = '';
-    }
+    const { curPage, onSideClick, onMoresClick } = this.props;
     return (
-      <header className={headerClassName}>
+      <header>
         <div className="header-container">
-          <img className="header-logo" alt="logo" src={imgSrc} />
-          <Nav label="首页" />
-          <div className="header-sign">
-            <Link to="/signin">登录</Link>
-            <Link to="/signup">注册</Link>
+          <div className="header-left fl">
+            { curPage === 'main' ?
+              <div className="header-menu" onClick={onSideClick}>
+                <i className="iconfont">&#xe65d;</i>
+              </div>
+              :
+              <div className="header-back">
+                <i className="iconfont">&#xe697;</i>
+              </div>
+            }
+          </div>
+          <div className="header-title">title</div>
+          <div className="header-right fr">
+            <div className="header-search">
+              <i className="iconfont">&#xe651;</i>
+            </div>
+            <div className="header-mores" onClick={onMoresClick}>
+              <i className="iconfont">&#xe62c;</i>
+            </div>
           </div>
         </div>
       </header>
@@ -55,4 +42,27 @@ class Header extends Component {
   }
 }
 
-export default Header;
+function mapStateToProps(state) {
+  return {
+    value: state.count,
+    curPage: state.currentPage
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onSideClick: (event) => {
+      event.stopPropagation();
+      dispatch(sider(true));
+    },
+    onMoresClick: (event) => {
+      event.stopPropagation();
+      dispatch(bottom(1));
+    }
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Header);

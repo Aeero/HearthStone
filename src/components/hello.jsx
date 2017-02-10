@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { randomRank } from '../config/tool';
+import { hellor } from '../action/action';
 
 import '../styles/hello.css';
 
 class Hello extends Component {
   static propTypes = {
-    remove: React.PropTypes.bool.isRequired
+    countDown: React.PropTypes.func.isRequired
   }
   constructor(props) {
     super(props);
@@ -18,6 +20,15 @@ class Hello extends Component {
 
     this.onLoad = this.onLoad.bind(this);
   }
+  componentDidMount() {
+    this.props.countDown();
+  }
+  componentDidUpdate() {
+    console.log('update');
+  }
+  componentWillUnmount() {
+    console.log(1);
+  }
   onLoad() {
     this.setState({
       isShow: true
@@ -27,15 +38,27 @@ class Hello extends Component {
     const src = `/src/images/h${this.rank}.png`;
     const isShow = this.state.isShow;
     return (
-      !this.props.remove ?
-        <div className="hello">
-          <div className="hello-container">
-            <img className={isShow ? 'show' : ''} src={src} onLoad={this.onLoad} alt="icon" />
-          </div>
+      <div className="hello">
+        <div className="hello-container">
+          <img className={isShow ? 'show' : ''} src={src} onLoad={this.onLoad} alt="icon" />
         </div>
-      : <div className="empty" />
+      </div>
     );
   }
 }
 
-export default Hello;
+function mapDispatchToProps(dispatch) {
+  return {
+    // 倒计时2s移除hello
+    countDown: () => {
+      setTimeout(() => {
+        dispatch(hellor(false));
+      }, 2500);
+    }
+  };
+}
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Hello);

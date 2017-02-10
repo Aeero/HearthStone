@@ -18,7 +18,9 @@ module.exports = {
       //拖尾逗号
       "comma-dangle": 0,
       //箭头函数函数体
-      "arrow-body-style": [2,'always']
+      "arrow-body-style": [2,'always'],
+      // div等元素不能加鼠标键盘事件
+      "jsx-a11y/no-static-element-interactions": 0
     },
     plugins: [
       'jsx-a11y',

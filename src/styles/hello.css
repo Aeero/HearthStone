@@ -14,6 +14,8 @@
 }
 .hello{
   position: relative;
+  z-index: 999;
+  background: #fff;
 }
 .hello, .hello-container{
   width: 100%;

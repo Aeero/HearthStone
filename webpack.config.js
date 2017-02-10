@@ -29,7 +29,7 @@ module.exports = {
           },],
         loaders: [{
             test: /\.js[x]?$/,
-            loader: 'babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0',
+            loader: 'react-hot!babel-loader?presets[]=react,presets[]=es2015,presets[]=stage-0',
             include: /src/,
             exclude: /node_modules/,
           }, {
@@ -56,8 +56,8 @@ module.exports = {
         historyApiFallback: true, //不跳转
         inline: true,
         proxy: {
-          '/pc/img/*': {
-            target: 'http://www.wxb.com/',
+          '/api': {
+            target: 'http://lushi.zhujunwu.cn',
             secure: false,
             changeOrigin: true
           }

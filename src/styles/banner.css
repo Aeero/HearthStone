@@ -1,0 +1,45 @@
+.banner, .banner ul, .banner-img li, .banner img{
+  width: 100%;
+}
+.banner{
+  position: relative;
+  margin-top: 2px;
+}
+.banner-img li{
+  opacity: 0;
+  width: 0;
+  height: 0;
+  transition: opacity 0.5s linear 0s;
+}
+.banner-img li.active{
+  opacity: 1;
+  width: 100%;
+  height: auto;
+}
+.banner img{
+  /* 需要删除 */
+  height: 2.7rem;
+}
+.banner-point{
+  text-align: center;
+}
+.banner-point li{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 3px;
+}
+.banner-point li a{
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #3e3e50;
+  vertical-align: middle;
+  transition: all 0.3s linear 0s;
+}
+.banner-point li.active a{
+  width: 10px;
+  height: 10px;
+  transition: all 0.3s linear 0.2s !important;
+}

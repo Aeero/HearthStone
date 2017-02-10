@@ -1,0 +1,83 @@
+.sidebar{
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  left: -82%;
+  width: 80%;
+  height: 100%;
+  transition: left 0.25s ease-out 0s;
+  font-size: 0.16rem;
+  box-sizing: border-box;
+}
+.sidebar a{
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  color: #2b2b2b;
+}
+.sidebar.show{
+  left: 0;
+}
+.sidebar-container{
+  width: 100%;
+  height: 100%;
+  background-color: #fbfbfb;
+  box-shadow: 0px 0px 8px #222;
+}
+.sidebar-user{
+  width: 100%;
+  height: 25%;
+  background-color: #2b2b2b;
+  border-top: 1px solid #2b2b2b;
+  color: #999;
+}
+.sidebar-userhead{
+  width: 100%;
+  margin-top: 10px;
+}
+.sidebar-userhead img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-left: 10px;
+}
+.sidebar-reset{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.sidebar-userinfo p{
+  text-indent: 0.15rem;
+  color: #eee;
+}
+.sidebar-func{
+  margin-top: 10px;
+}
+.sidebar-func li{
+  line-height: 0.5rem;
+  padding-left: 0.12rem;
+}
+.sidebar-func li.active, .sidebar-func li:active, .sidebar-bottom>*:active{
+  background-color: rgba(162,157,157,0.41);
+}
+.sidebar-icon{
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.16rem;
+}
+.sidebar-icon i{
+  color: #2b2b2b;
+}
+.sidebar-bottom{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0.5rem;
+  line-height: 0.5rem;
+}
+.sidebar-bottom>*{
+  width: 50%;
+  display: inline-block;
+}

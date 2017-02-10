@@ -1,0 +1,9 @@
+.icon{
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.16rem;
+}
+.icon i{
+  color: #2b2b2b;
+}
