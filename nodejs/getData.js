@@ -3,55 +3,26 @@ var fs = require('fs');
 var qs = require('querystring');
 //get 请求外网
 
-function concatData(filename, length) {
-  var DATA = [];
-  var writeData = function() {
-    fs.writeFile('../data/'+filename, JSON.stringify(DATA), function(err) {
-      if (err) {
-        throw err;
-      }
-      console.log('SAVE!');
-    });
-  }
-  var read = function(page, maxpage) {
-    fs.readFile('../data/page_' + page + '.json', function(err, data) {
-      if (err) {
-        throw err;
-      };
-      var jsonData = JSON.parse(data);
-      DATA = DATA.concat(jsonData);
-      console.log('page_' + page + '.json');
-      if (page >= maxpage) {
-        writeData();
-      } else {
-        read(page + 1, maxpage);
-      }
 
-    })
-  }
-  read(1, length);
+function write(filename, data, page) {
+  filename = '../data/'+filename+'.json';
 
-}
+  var fileData = data.map((e, i) => {
+    delete e['_id'];
 
-function read(page) {
-  fs.readFile('../data/page_' + page + '.json', function(err, data) {
-    if (err) {
-      return '';
-    };
-    var jsonData = JSON.parse(data);
-    return jsonData;
-  })
-}
-
-function write(data, page) {
-  var fileData = data;
-
-  fs.writeFile('../data/page_' + page + '.json', JSON.stringify(fileData), function(err) {
-    if (err) {
-      throw err;
-    }
-    console.log('save page ' + page + ' succeed!');
+    return JSON.stringify(e);
   });
+  console.log('length: '+fileData.length);
+  var formatData = fileData.join('\n')+'\n';
+
+  if (page === 1) {
+    fs.writeFileSync(filename, formatData);
+    console.log('save page ' + page + ' succeed!');
+  } else {
+    fs.appendFile(filename, formatData);
+    console.log('save page ' + page + ' succeed!');
+  }
+
 
 
   // fs.readFile('../data/test.json', function(err, data) {
@@ -81,7 +52,7 @@ function getENData(curPage, maxPage) {
   var data = {
     sort: 'cost,name',
     page: curPage,
-    pageSize: 10,
+    pageSize: 20,
     cost: '0,1,2,3,4,5,6,7',
     type: 'MINION,SPELL,WEAPON',
     collectible: true,
@@ -118,10 +89,10 @@ function getENData(curPage, maxPage) {
 
         // 数据为空
         if (parsedData.length === 0 || (maxPage && curPage >= maxPage)) {
-          write(parsedData, curPage);
+          write('ENDATA0', parsedData, curPage);
         } else {
-          write(parsedData, curPage);
-          getData(curPage + 1, maxPage)
+          write('ENDATA0', parsedData, curPage);
+          getENData(curPage + 1, maxPage)
         }
         // console.log(parsedData);
 
@@ -177,9 +148,9 @@ function getCNData(curPage, maxPage) {
         }
         // 数据为空
         if (parsedData.length === 0 || (maxPage && curPage >= maxPage)) {
-          write(parsedData, curPage);
+          write('CNDATA0', parsedData, curPage);
         } else {
-          write(parsedData, curPage);
+          write('CNDATA0', parsedData, curPage);
           getCNData(curPage + 1, maxPage)
         }
         // console.log(parsedData);
@@ -199,8 +170,6 @@ function getCNData(curPage, maxPage) {
   req.end();
 }
 
-// getData(1);
-// concatData('ENDATA.json', 107);
+getENData(1);
 
 // getCNData(1);
-concatData('CNDATA.json', 59);
