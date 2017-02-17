@@ -14,6 +14,8 @@ import Explore from '../components/explore';
 import Info from '../components/info';
 import Topic from '../components/topic';
 import Signin from '../components/signin';
+import Search from '../components/search';
+
 // import Signin from './signin';
 
 // 最终渲染
@@ -26,6 +28,7 @@ ReactDom.render(
         <Route path="explore" component={Explore} />
         <Route path="info" component={Info} />
         <Route path="signin" component={Signin} />
+        <Route path="search" component={Search} />
       </Route>
     </Router>
   </Provider>

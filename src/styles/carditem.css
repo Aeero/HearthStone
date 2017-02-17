@@ -1,0 +1,60 @@
+.carditem{
+  border: 1px solid #ccc;
+  margin: 8px 5px;
+  background-color: #DCDCDC;
+  border-radius: 5px;
+}
+.carditem.RARE{
+  box-shadow: 0 0 2px 2px #3BC0ED;
+}
+.carditem.EPIC{
+  box-shadow: 0 0 2px 2px #FE59FD;
+}
+.carditem.LEGENDARY{
+box-shadow: 0 0 2px 2px #FC9F26;
+}
+.carditem-img{
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+.carditem-img.spell{
+  width: 144px;
+  height: 85px;
+}
+.carditem-img.minion{
+  width: 128px;
+  height: 125px;
+}
+.carditem-img.spell img{
+  left: -38px;
+  top: -84px;
+  width: 224px;
+}
+.carditem-img.minion img{
+  left: -79px;
+  top: -94px;
+  width: 288px;
+}
+.carditem-img img{
+  position: absolute;
+}
+.carditem-info{
+  border-bottom: 1px solid #eee;
+}
+.carditem-intro{
+  display: inline-block;
+  width: calc(100% - 144px);
+  vertical-align: top;
+}
+.carditem-text{
+  padding: 5px;
+}
+.carditem-name{
+  font-size: 0.16rem;
+  margin-left: 0.05rem;
+}
+.carditem-spell, .carditem-type, .carditem-set{
+  margin-left: 0.12rem;
+  font-size: 0.12rem;
+}

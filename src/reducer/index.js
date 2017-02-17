@@ -11,7 +11,7 @@ const defaultState = {
   bottom: 0
 };
 
-function counter(state = defaultState, action) {
+export default function counter(state = defaultState, action) {
   const { type } = action;
   let { point } = action;
   switch (type) {
@@ -45,5 +45,3 @@ function counter(state = defaultState, action) {
       return state;
   }
 }
-
-export default { counter };

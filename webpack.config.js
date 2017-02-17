@@ -56,13 +56,18 @@ module.exports = {
         historyApiFallback: true, //不跳转
         inline: true,
         proxy: {
-          '/api': {
-            target: 'http://lushi.zhujunwu.cn',
+          '/8hpoty': {
+            target: 'http://i1.17173cdn.com/',
+            secure: false,
+            changeOrigin: true
+          },
+          '/v1': {
+            target: 'http://media.services.zam.com/',
             secure: false,
             changeOrigin: true
           }
-        }
-        // hot: true//实时刷新
+        },
+        hot: true//实时刷新
       },
 
     plugins: [
