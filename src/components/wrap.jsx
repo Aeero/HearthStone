@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
+//
+// import { wrapClickEvent } from '../action/action';
 
-import { wrapClickEvent } from '../action/action';
-
-class Wrap extends Component {
+export default class Wrap extends Component {
   static propTypes = {
     onWrapClick: React.PropTypes.func.isRequired
   }
@@ -14,21 +14,21 @@ class Wrap extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    value: state.count
-  };
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    onWrapClick: () => {
-      dispatch(wrapClickEvent('click'));
-    }
-  };
-}
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Wrap);
+// function mapStateToProps(state) {
+//   return {
+//     value: state.count
+//   };
+// }
+//
+// function mapDispatchToProps(dispatch) {
+//   return {
+//     onWrapClick: () => {
+//       dispatch(wrapClickEvent('click'));
+//     }
+//   };
+// }
+//
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(Wrap);

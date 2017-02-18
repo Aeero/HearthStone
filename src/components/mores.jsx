@@ -12,7 +12,8 @@ import '../styles/mores.css';
 
 class Mores extends Component {
   static propTypes = {
-    isShow: React.PropTypes.number.isRequired
+    visible: React.PropTypes.number.isRequired,
+    removeView: React.PropTypes.func
   }
   componentDidMount() {
 
@@ -21,13 +22,14 @@ class Mores extends Component {
   }
   componentWillUnmount() {
   }
+
   render() {
-    const { isShow } = this.props;
-    const className = isShow === 1 ? 'mores show' : 'mores';
-    if (isShow === 1) {
+    const { visible } = this.props;
+    const className = visible === 1 ? 'mores show' : 'mores';
+    if (visible === 1) {
       return (
         <div>
-          <Wrap />
+          <Wrap onWrapClick={this.props.removeView} />
           <div className={className}>
             <h3>更多</h3>
             <ul>
@@ -52,13 +54,12 @@ class Mores extends Component {
 
 function mapStateToProps(state) {
   return {
-    isShow: state.bottom
+    visible: state.visible.bottom
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-
     removeView: () => {
       dispatch(bottom(0));
     }

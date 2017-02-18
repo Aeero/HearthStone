@@ -5,23 +5,24 @@ import { Link } from 'react-router';
 import Icon from './icon';
 import Wrap from './wrap';
 
-// import { sider } from '../action/action';
+import { sider } from '../action/action';
 import '../styles/sidebar.css';
 
 class Sidebar extends Component {
   static propTypes = {
-    isShow: React.PropTypes.bool.isRequired
+    visible: React.PropTypes.bool.isRequired,
+    removeView: React.PropTypes.func
   }
   componentDidUpdate() {
   }
   componentWillUnmount() {
   }
   render() {
-    const { isShow } = this.props;
-    if (isShow) {
+    const { visible } = this.props;
+    if (visible) {
       return (
         <div>
-          <Wrap />
+          <Wrap onWrapClick={this.props.removeView} />
           <div className="sidebar show">
             <div className="sidebar-container">
               <div className="sidebar-user">
@@ -83,21 +84,19 @@ class Sidebar extends Component {
 
 function mapStateToProps(state) {
   return {
-    isShow: state.sidebar
+    visible: state.visible.sidebar
   };
 }
 
-// function mapDispatchToProps(dispatch) {
-//   return {
-//     onHideClick: (event) => {
-//       if (!document.querySelector('.sidebar').contains(event.target)) {
-//         dispatch(sider(false));
-//       }
-//     }
-//   };
-// }
+function mapDispatchToProps(dispatch) {
+  return {
+    removeView: () => {
+      dispatch(sider(false));
+    }
+  };
+}
 
 export default connect(
   mapStateToProps,
-  null
+  mapDispatchToProps
 )(Sidebar);

@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import { randomRank } from '../config/tool';
+import { hellor } from '../action/action';
 
 import '../styles/hello.css';
 
-export default class Hello extends Component {
+class Hello extends Component {
+  static propTypes = {
+    visible: React.PropTypes.bool,
+    removeView: React.PropTypes.func
+  }
   constructor(props) {
     super(props);
     this.rank = randomRank(18)[0];
     // 图片显示
     this.state = {
-      visible: true,
       isShow: false
     };
 
     this.onLoad = this.onLoad.bind(this);
   }
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        visible: false
-      });
-    }, 2500);
+    this.props.removeView();
   }
   componentDidUpdate() {
     // console.log('update');
@@ -36,7 +37,8 @@ export default class Hello extends Component {
   }
   render() {
     const src = `/src/images/h${this.rank}.png`;
-    const { visible, isShow } = this.state;
+    const { isShow } = this.state;
+    const { visible } = this.props;
     if (visible) {
       return (
         <div className="hello">
@@ -49,3 +51,24 @@ export default class Hello extends Component {
     return null;
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    visible: state.visible.hello
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    removeView: () => {
+      setTimeout(() => {
+        dispatch(hellor(false));
+      }, 2500);
+    }
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Hello);
