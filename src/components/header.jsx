@@ -1,36 +1,83 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 // import { Link } from 'react-router';
+// import { Link } from 'react-router';
+import Icon from './icon';
 
 import { sider, bottom } from '../action/action';
 import '../styles/header.css';
 
 class Header extends Component {
   static propTypes = {
+    menu: React.PropTypes.string,
+    back: React.PropTypes.string,
+    search: React.PropTypes.string,
+    more: React.PropTypes.string,
+    title: React.PropTypes.string,
+    input: React.PropTypes.string,
+    bgColor: React.PropTypes.string,
     onSideClick: React.PropTypes.func.isRequired,
     onMoresClick: React.PropTypes.func.isRequired
   }
+  constructor() {
+    super();
+    this.onBackClick = (e) => {
+      e.stopPropagation();
+      if (window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = '/';
+      }
+    };
+  }
   render() {
-    const { onSideClick, onMoresClick } = this.props;
+    const {
+      menu,
+      back,
+      search,
+      more,
+      title,
+      input,
+      bgColor,
+      onSideClick,
+      onMoresClick
+    } = this.props;
     return (
-      <header>
+      <header style={{ backgroundColor: bgColor }}>
         <div className="header-container">
           <div className="header-left fl">
-            <div className="header-menu" onClick={onSideClick}>
-              <i className="iconfont">&#xe65d;</i>
-            </div>
+            {
+              menu ?
+                <div className="header-menu" onClick={onSideClick}>
+                  <Icon iconCode="&#xe65d;" color="#fff" />
+                </div> : null
+            }
+            {
+              back ?
+                <div className="searchheader-back" onClick={this.onBackClick}>
+                  <Icon iconCode="&#xe697;" color="#2b2b2b" />
+                </div> : null
+            }
           </div>
-          <div className="header-title">炉石社区</div>
+          {
+            input ? <input type="text" placeholder={input} /> : null
+          }
+          {
+            title ? <div className="header-title">{title}</div> : null
+          }
           <div className="header-right fr">
-            <div className="header-search">
-              <Link to="/search">
-                <i className="iconfont">&#xe651;</i>
-              </Link>
-            </div>
-            <div className="header-mores" onClick={onMoresClick}>
-              <i className="iconfont">&#xe62c;</i>
-            </div>
+            {
+              search ?
+                <div className="header-search">
+                  <Icon iconCode="&#xe651;" color="#2b2b2b" />
+                </div> : null
+            }
+            {
+              more ?
+                <div className="header-mores" onClick={onMoresClick}>
+                  <Icon iconCode="&#xe62c;" color="#fff" />
+                </div> : null
+            }
           </div>
         </div>
       </header>

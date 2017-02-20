@@ -41,22 +41,22 @@ class Sidebar extends Component {
                 <ul>
                   <li className="active">
                     <Link to="/main">
-                      <Icon text="主页" iconCode="&#xe614;" />
+                      <Icon text="主页" iconCode="&#xe614;" color="#2b2b2b" />
                     </Link>
                   </li>
                   <li>
                     <Link to="/info">
-                      <Icon text="消息" iconCode="&#xe665;" />
+                      <Icon text="消息" iconCode="&#xe665;" color="#2b2b2b" />
                     </Link>
                   </li>
                   <li>
                     <Link to="/card">
-                      <Icon text="我的套牌" iconCode="&#xe65b;" />
+                      <Icon text="我的套牌" iconCode="&#xe65b;" color="#2b2b2b" />
                     </Link>
                   </li>
                   <li>
                     <Link to="/card">
-                      <Icon text="我的收藏" iconCode="&#xe6cb;" />
+                      <Icon text="我的收藏" iconCode="&#xe6cb;" color="#2b2b2b" />
                     </Link>
                   </li>
                 </ul>
@@ -64,12 +64,12 @@ class Sidebar extends Component {
               <div className="sidebar-bottom">
                 <div className="sidebar-help">
                   <Link to="/help">
-                    <Icon text="帮助" iconCode="&#xe61a;" />
+                    <Icon text="帮助" iconCode="&#xe61a;" color="#2b2b2b" />
                   </Link>
                 </div>
                 <div className="sidebar-setting">
                   <Link to="/setting">
-                    <Icon text="设置" iconCode="&#xe64b;" />
+                    <Icon text="设置" iconCode="&#xe64b;" color="#2b2b2b" />
                   </Link>
                 </div>
               </div>

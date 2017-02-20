@@ -1,12 +1,6 @@
 .icon{
   display: inline-block;
-  width: 0.5rem;
-  height: 0.5rem;
-  line-height: 0.5rem;
 }
-.icon i{
-  color: #2b2b2b;
-}
-.icon span{
+.icon+span{
   margin-left: 0.16rem;
 }

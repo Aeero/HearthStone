@@ -1,0 +1,71 @@
+.searchfilter{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+}
+.searchfilter-toggle{
+  text-align: center;
+}
+.searchfilter-toggle button{
+  width: 100%;
+  height: 100%;
+  padding-top: 4px;
+  background-color: #eee;
+  margin-bottom: 5px;
+}
+.searchfilter-heros{
+  background-color: #999;
+  padding: 5px 8px;
+  border-radius: 42px;
+  margin-bottom: 3px;
+}
+.searchfilter-heros ul{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-x: auto;
+  height: 40px;
+}
+.searchfilter-heros ul::-webkit-scrollbar{
+  height: 0;
+}
+.searchfilter-heros li{
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+  background: url('/src/images/icons/icon-heros.png') no-repeat;
+  opacity: 0.5;
+}
+.searchfilter-heros li.active{
+  opacity: 1;
+}
+.searchfilter-heros li:nth-of-type(1){
+  background-position: -1px -1px;
+}
+.searchfilter-heros li:nth-of-type(2){
+  background-position: -41px -1px;
+}
+.searchfilter-heros li:nth-of-type(3){
+  background-position: -82px -1px;
+}
+.searchfilter-heros li:nth-of-type(4){
+  background-position: -1px -41px;
+}
+.searchfilter-heros li:nth-of-type(5){
+  background-position: -41px -41px;
+}
+.searchfilter-heros li:nth-of-type(6){
+  background-position: -82px -41px;
+}
+.searchfilter-heros li:nth-of-type(7){
+  background-position: -1px -82px;
+}
+.searchfilter-heros li:nth-of-type(8){
+  background-position: -41px -82px;
+}
+.searchfilter-heros li:nth-of-type(9){
+  background-position: -82px -82px;
+}

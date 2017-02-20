@@ -31,12 +31,21 @@ class SearchFilter extends Component {
   render() {
     return (
       <div className="searchfilter">
-        <div className="searchfilter-header">
-          <div className="searchfilter-back" onClick={this.onClick}>
-            <Icon iconCode="&#xe697;" />
-          </div>
-          <input type="text" placeholder="搜索卡片" />
-          <Icon iconCode="&#xe651;" />
+        <div className="searchfilter-toggle">
+          <button><Icon iconCode="&#xe6a5;" width="100%" height="100%" /></button>
+        </div>
+        <div className="searchfilter-heros">
+          <ul>
+            <li />
+            <li />
+            <li />
+            <li />
+            <li />
+            <li />
+            <li />
+            <li />
+            <li />
+          </ul>
         </div>
       </div>
     );

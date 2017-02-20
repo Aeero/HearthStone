@@ -1,0 +1,17 @@
+.feature a{
+  color: #2b2b2b;
+}
+.feature ul{
+  margin: 5px 0;
+}
+.feature li{
+  display: inline-block;
+  width: 49.5%;
+  background-color: #f2f2f2;
+}
+.feature li:nth-of-type(1){
+  margin-right: 0.5%;
+}
+.feature li:nth-of-type(2){
+  margin-left: 0.5%;
+}

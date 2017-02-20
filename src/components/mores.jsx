@@ -35,12 +35,12 @@ class Mores extends Component {
             <ul>
               <li>
                 <Link to="/">
-                  <Icon text="分享" iconCode="&#xe60a;" />
+                  <Icon text="分享" iconCode="&#xe60a;" color="#2b2b2b" />
                 </Link>
               </li>
               <li>
                 <Link to="/">
-                  <Icon text="意见反馈" iconCode="&#xe662;" />
+                  <Icon text="意见反馈" iconCode="&#xe662;" color="#2b2b2b" />
                 </Link>
               </li>
             </ul>

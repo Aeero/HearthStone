@@ -1,5 +1,4 @@
 .searchheader{
-  background-color: #e5e5e5;
   position: fixed;
   top:0;
   width: 100%;
@@ -10,7 +9,7 @@
 }
 .searchheader input{
   width: calc(100% - 1rem);
-  background-color: #e5e5e5;
+  background-color: inherit;
   border-bottom: 1px solid #2b2b2b;
   color: black;
   height: 0.4rem;

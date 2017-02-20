@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import fetch from 'isomorphic-fetch';
 
-import SearchHeader from './searchheader';
+import Header from './header';
+import SearchFilter from './searchfilter';
 import CardList from './cardlist';
 
 import { fetchPosts } from '../action/action';
@@ -34,8 +35,9 @@ class Search extends Component {
     console.log(status, data);
     return (
       <div className="search">
-        <SearchHeader />
+        <Header back="true" search="true" input="请输入卡片名称" bgColor="#e5e5e5" />
         <CardList data={data} />
+        <SearchFilter />
       </div>
     );
   }

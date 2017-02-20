@@ -4,27 +4,30 @@ import '../styles/icon.css';
 
 class Icon extends Component {
   static propTypes = {
-    // width: React.PropTypes.number,
-    // height: React.PropTypes.number,
+    width: React.PropTypes.string,
+    height: React.PropTypes.string,
     iconCode: React.PropTypes.string.isRequired,
-    text: React.PropTypes.string
+    text: React.PropTypes.string,
+    color: React.PropTypes.string
   }
   render() {
+    const { width, height, iconCode, text, color } = this.props;
+    const style = {
+      width: width || '0.5rem',
+      height: height || '0.5rem',
+      lineHeight: height || '0.5rem',
+      display: 'inline-block',
+      color: color || null
+    };
     return (
-      this.props.text ?
-      (
-        <div>
-          <div className="icon">
-            <i className="iconfont">{this.props.iconCode}</i>
-          </div>
-          <span>{this.props.text}</span>
+      <div style={{ display: 'inline-block' }}>
+        <div className="icon" style={style}>
+          <i className="iconfont">{iconCode}</i>
         </div>
-      )
-      : (
-        <div className="icon">
-          <i className="iconfont">{this.props.iconCode}</i>
-        </div>
-      )
+        {
+          text ? <span>{text}</span> : null
+        }
+      </div>
     );
   }
 }

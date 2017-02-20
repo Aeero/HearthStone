@@ -14,7 +14,7 @@ export default class Index extends Component {
       <div className="container">
         <Hello />
         <Mainbody />
-        <Header />
+        <Header menu="true" more="true" title="炉石社区" bgColor="#3e3e50" />
         <Sidebar />
         <Bottombar />
       </div>

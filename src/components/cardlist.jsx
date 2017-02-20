@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import CardItem from './carditem';
 
 const listStyle = {
-  marginTop: '0.55rem'
+  marginTop: '0.55rem',
+  marginBottom: '82px'
 };
 
 class CardList extends Component {
