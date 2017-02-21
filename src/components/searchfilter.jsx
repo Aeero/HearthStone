@@ -36,15 +36,7 @@ class SearchFilter extends Component {
         </div>
         <div className="searchfilter-heros">
           <ul>
-            <li />
-            <li />
-            <li />
-            <li />
-            <li />
-            <li />
-            <li />
-            <li />
-            <li />
+            <li /><li /><li /><li /><li /><li /><li /><li /><li />
           </ul>
         </div>
       </div>

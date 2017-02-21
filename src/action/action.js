@@ -49,7 +49,7 @@ export const fetchPosts = (path) => {
     }).then((data) => {
       dispatch(fetchEnd(data));
     }).catch((error) => {
-      console.log(error);
+      throw error;
     });
   };
 };

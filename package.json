@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "devvvvv": "webpack-dev-server --devtool --progress",
-    "dev": "webpack-dev-server -d --history-api-fallback --hot --inline --progress --colors",
-    "build": "webpack -p",
+    "dev": "webpack-dev-server -d --inline --progress --hot --colors",
+    "build": "webpack --inline --progress --colors --config webpack.config.prod.js -p",
     "eslintfix": "eslint --fix"
   },
   "repository": {

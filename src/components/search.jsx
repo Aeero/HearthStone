@@ -10,7 +10,7 @@ import { fetchPosts } from '../action/action';
 
 class Search extends Component {
   static propTypes = {
-    status: React.PropTypes.string,
+    // status: React.PropTypes.string,
     data: React.PropTypes.arrayOf(React.PropTypes.object),
     request: React.PropTypes.func
   }
@@ -31,8 +31,8 @@ class Search extends Component {
     // });
   }
   render() {
-    const { status, data } = this.props;
-    console.log(status, data);
+    const { data } = this.props;
+    // console.log(status, data);
     return (
       <div className="search">
         <Header back="true" search="true" input="请输入卡片名称" bgColor="#e5e5e5" />

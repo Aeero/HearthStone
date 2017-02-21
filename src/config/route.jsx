@@ -15,6 +15,7 @@ import Info from '../components/info';
 import Topic from '../components/topic';
 import Signin from '../components/signin';
 import Search from '../components/search';
+import Newdeck from '../components/newdeck';
 
 // import Signin from './signin';
 
@@ -29,6 +30,7 @@ ReactDom.render(
         <Route path="info" component={Info} />
         <Route path="signin" component={Signin} />
         <Route path="search" component={Search} />
+        <Route path="newdeck" component={Newdeck} />
       </Route>
     </Router>
   </Provider>

@@ -42,6 +42,13 @@ class Header extends Component {
       onSideClick,
       onMoresClick
     } = this.props;
+    // 图标的颜色
+    let color = null;
+    if (bgColor === '#2b2b2b') {
+      color = '#fff';
+    } else if (bgColor === '#e5e5e5') {
+      color = '#2b2b2b';
+    }
     return (
       <header style={{ backgroundColor: bgColor }}>
         <div className="header-container">
@@ -49,13 +56,13 @@ class Header extends Component {
             {
               menu ?
                 <div className="header-menu" onClick={onSideClick}>
-                  <Icon iconCode="&#xe65d;" color="#fff" />
+                  <Icon iconCode="&#xe65d;" color={color} />
                 </div> : null
             }
             {
               back ?
                 <div className="searchheader-back" onClick={this.onBackClick}>
-                  <Icon iconCode="&#xe697;" color="#2b2b2b" />
+                  <Icon iconCode="&#xe697;" color={color} />
                 </div> : null
             }
           </div>
@@ -69,13 +76,13 @@ class Header extends Component {
             {
               search ?
                 <div className="header-search">
-                  <Icon iconCode="&#xe651;" color="#2b2b2b" />
+                  <Icon iconCode="&#xe651;" color={color} />
                 </div> : null
             }
             {
               more ?
                 <div className="header-mores" onClick={onMoresClick}>
-                  <Icon iconCode="&#xe62c;" color="#fff" />
+                  <Icon iconCode="&#xe62c;" color={color} />
                 </div> : null
             }
           </div>
