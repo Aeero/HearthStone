@@ -8,7 +8,7 @@
   line-height: 0.3rem;
   color: #3e3e50;
 }
-.deckchoose button{
+.deckchoose button.btn{
   width: 100%;
   display: block;
   height: 0.5rem;
@@ -17,11 +17,13 @@
   font-size: 0.18rem;
   margin: 0.1rem 0;
 }
+.deckchoose-heros{
+}
 .deckchoose-heros ul{
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow-x: auto;
+  overflow-x: hidden;
   position: relative;
   height: 450px;
   overflow-y: hidden;
@@ -33,12 +35,17 @@
   height: 449px;
   position: absolute;
   background-color: #fff;
-  /*transition: all 1s linear 0s;*/
+  transition: left 0.3s linear 0s;
+  cursor: pointer;
 }
 .deckchoose-heros li.active img{
   filter: none;
   opacity: 1;
   transition: all 0.5s ease-out 0s;
+  width: 120%;
+  height: 120%;
+  left: -10%;
+  top: -10%;
 }
 .deckchoose-heros li img{
   position: absolute;
@@ -49,4 +56,14 @@
   margin: auto auto;
   filter: blur(1.5px);
   opacity: 0.8;
+}
+.deckchoose-heros-container{
+  position: relative;
+}
+.deckchoose-heros-container button{
+  position: absolute;
+  cursor: pointer;
+  z-index: 200;
+  top: 38%;
+  background-color: rgba(245,245,245,0.8);
 }

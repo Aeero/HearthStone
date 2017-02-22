@@ -34,10 +34,12 @@ module.exports = {
             exclude: /node_modules/,
           }, {
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract('style', 'css!postcss'),
+            // loader: ExtractTextPlugin.extract('style', 'css!postcss'),
+            loader: 'style!css!postcss'
           }, {
             test: /\.scss$/,
-            loader: ExtractTextPlugin.extract('style', 'css!postcss!sass'),
+            // loader: ExtractTextPlugin.extract('style', 'css!postcss!sass'),
+            loader: 'style!css!postcss!sass'
           }, {
             test: /\.(png|jpg)$/,
             loader: 'url?limit=8192',

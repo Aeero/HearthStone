@@ -20,7 +20,12 @@ module.exports = {
       //箭头函数函数体
       "arrow-body-style": [2,'always'],
       // div等元素不能加鼠标键盘事件
-      "jsx-a11y/no-static-element-interactions": 0
+      "jsx-a11y/no-static-element-interactions": 0,
+      "react/jsx-no-bind": [0, {
+        "ignoreRefs": false,
+        "allowArrowFunctions":false,
+        "allowBind": false
+      }]
     },
     plugins: [
       'jsx-a11y',

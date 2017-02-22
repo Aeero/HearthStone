@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server -d --inline --progress --hot --colors",
     "build": "webpack --inline --progress --colors --config webpack.config.prod.js -p",
-    "eslintfix": "eslint --fix"
+    "lint": "eslint src/action/action.js"
   },
   "repository": {
     "type": "git",
