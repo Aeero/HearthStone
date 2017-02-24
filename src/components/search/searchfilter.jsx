@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import Icon from './icon';
+import Icon from '../icon';
 
-import '../styles/searchfilter.css';
+import '../../styles/searchfilter.css';
 //
 // <div className="searchfilter-option">
 //   <div className="searchfilter-option-heros">

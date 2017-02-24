@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import fetch from 'isomorphic-fetch';
 
-import Header from './header';
+import Header from '../header';
 import SearchFilter from './searchfilter';
 import CardList from './cardlist';
 
-import { fetchPosts } from '../action/action';
+import { fetchPosts } from '../../action/action';
 
 class Search extends Component {
   static propTypes = {

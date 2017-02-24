@@ -1,14 +1,23 @@
-.deckchoose{
-  margin-top: 0.55rem;
+@keyframes newdeck-in {
+ 0% {
+   left: 100%
+ }
+ 100% {
+   left: 0;
+ }
+}
+.newdeck{
   width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
 }
-.deckchoose h3{
-  font-size: 0.16rem;
-  text-indent: 0.2rem;
-  line-height: 0.3rem;
-  color: #3e3e50;
+.newdeck-btn{
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
-.deckchoose button.btn{
+.newdeck-btn button{
   width: 100%;
   display: block;
   height: 0.5rem;
@@ -17,9 +26,15 @@
   font-size: 0.18rem;
   margin: 0.1rem 0;
 }
-.deckchoose-heros{
+.newdeck-heros-wrap{
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
-.deckchoose-heros ul{
+.newdeck-heros{
+  padding-top: 0.55rem;
+}
+.newdeck-heros ul{
   width: 100%;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -28,7 +43,7 @@
   height: 450px;
   overflow-y: hidden;
 }
-.deckchoose-heros li{
+.newdeck-heros li{
   display: inline-block;
   vertical-align: top;
   width: 140px;
@@ -38,7 +53,7 @@
   transition: left 0.3s linear 0s;
   cursor: pointer;
 }
-.deckchoose-heros li.active img{
+.newdeck-heros li.active img{
   filter: none;
   opacity: 1;
   transition: all 0.5s ease-out 0s;
@@ -47,7 +62,7 @@
   left: -10%;
   top: -10%;
 }
-.deckchoose-heros li img{
+.newdeck-heros li img{
   position: absolute;
   left: 0;
   top: 0;
@@ -57,13 +72,34 @@
   filter: blur(1.5px);
   opacity: 0.8;
 }
-.deckchoose-heros-container{
+.newdeck-heros-container{
   position: relative;
 }
-.deckchoose-heros-container button{
+.newdeck-heros-container button{
   position: absolute;
   cursor: pointer;
   z-index: 200;
   top: 38%;
   background-color: rgba(245,245,245,0.8);
+}
+
+.newdeck-model{
+  position: absolute;;
+  height: 100%;
+  width: 100%;
+  left: 100%;
+  top: 0;
+  background-color: #fff;
+  z-index: 300;
+  box-shadow: -1px 0 2px rgba(0,0,0,0.24);
+  transition: left 0.5s ease-out 0s;
+}
+.newdeck-model.active{
+  left: 0;
+}
+.newdeck-model li{
+  width: 90%;
+  height: 1rem;
+  margin: 0 auto;
+  border: 1px solid #000;
 }

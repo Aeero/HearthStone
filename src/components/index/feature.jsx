@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import Icon from './icon';
+import Icon from '../icon';
 
-import '../styles/feature.css';
+import '../../styles/feature.css';
 
 class Feature extends Component {
   render() {

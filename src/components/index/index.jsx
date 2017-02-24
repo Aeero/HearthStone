@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import Hello from './hello';
-import Header from './header';
-import Sidebar from './sidebar';
+import Hello from '../hello';
+import Header from '../header';
+import Sidebar from '../sidebar';
 import Mainbody from './mainbody';
-import Bottombar from './mores';
+import Bottombar from '../mores';
 
 export default class Index extends Component {
   static propTypes = {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import '../styles/carditem.css';
+import '../../styles/carditem.css';
 
 class CardItem extends Component {
   static propTypes = {

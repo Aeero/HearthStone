@@ -14,8 +14,8 @@ import Explore from '../components/explore';
 import Info from '../components/info';
 import Topic from '../components/topic';
 import Signin from '../components/signin';
-import Search from '../components/search';
-import Newdeck from '../components/newdeck';
+import Search from '../components/search/search';
+import Newdeck from '../components/newdeck/newdeck';
 
 // import Signin from './signin';
 

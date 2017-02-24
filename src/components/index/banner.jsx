@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-import '../styles/banner.css';
+import '../../styles/banner.css';
 
 class Banner extends Component {
   constructor(props) {

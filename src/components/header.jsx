@@ -8,6 +8,9 @@ import { sider, bottom } from '../action/action';
 import '../styles/header.css';
 
 class Header extends Component {
+  static defaultProps = {
+    position: 'fixed'
+  }
   static propTypes = {
     menu: React.PropTypes.string,
     back: React.PropTypes.string,
@@ -16,6 +19,7 @@ class Header extends Component {
     title: React.PropTypes.string,
     input: React.PropTypes.string,
     bgColor: React.PropTypes.string,
+    position: React.PropTypes.string,
     onSideClick: React.PropTypes.func.isRequired,
     onMoresClick: React.PropTypes.func.isRequired
   }
@@ -39,6 +43,7 @@ class Header extends Component {
       title,
       input,
       bgColor,
+      position,
       onSideClick,
       onMoresClick
     } = this.props;
@@ -50,7 +55,7 @@ class Header extends Component {
       color = '#2b2b2b';
     }
     return (
-      <header style={{ backgroundColor: bgColor }}>
+      <header style={{ backgroundColor: bgColor, position }}>
         <div className="header-container">
           <div className="header-left fl">
             {

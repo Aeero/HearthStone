@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 
-import Icon from './icon';
+import Icon from '../icon';
+import Button from './button';
+import Header from '../header';
 
-import '../styles/deckchoose.css';
+import './newdeck.css';
 
 const IMGWIDTH = 140;
 const SCALE = 5;
 const Z = 0.5;
 
-class Deckchoose extends Component {
+class Heros extends Component {
+  static propTypes = {
+    curHero: React.PropTypes.number.isRequired,
+    setCurHero: React.PropTypes.func.isRequired,
+    nextStep: React.PropTypes.func.isRequired,
+    preStep: React.PropTypes.func.isRequired
+  }
   constructor() {
     super();
     // @heroIndex: 当前选中
@@ -60,23 +68,21 @@ class Deckchoose extends Component {
       return heros;
     };
 
-    const heros = this.changeHerosState(5, IMGWIDTH, SCALE, Z);
-    this.state = {
-      curHeroIndex: 1,
-      heros,
-    };
-
     this.indexChange = this.indexChange.bind(this);
   }
-  // onIndexChange(event) {
-  //   event.stopPropagation();
-  //   const el = event.target;
-  //   const index = el.getAttribute('index')
-  // }
+
+  componentWillMount() {
+    this.heros = this.changeHerosState(this.props.curHero, IMGWIDTH, SCALE, Z);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.heros = this.changeHerosState(nextProps.curHero, IMGWIDTH, SCALE, Z);
+  }
+
   onIndexChange(flag, event) {
     event.stopPropagation();
-    const { heros } = this.state;
-    let { curHeroIndex } = this.state;
+    const heros = this.heros;
+    let curHeroIndex = this.props.curHero;
     const length = heros.length;
     if (flag === 'left') {
       curHeroIndex = curHeroIndex - 1 >= 1 ? curHeroIndex - 1 : 1;
@@ -86,11 +92,7 @@ class Deckchoose extends Component {
     this.indexChange(curHeroIndex);
   }
   indexChange(index) {
-    const heros = this.changeHerosState(index, IMGWIDTH, SCALE, Z);
-    this.setState({
-      curHeroIndex: index,
-      heros
-    });
+    this.props.setCurHero(index);
   }
   // onHerosScroll(event) {
   //   event.stopPropagation();
@@ -115,12 +117,13 @@ class Deckchoose extends Component {
   //   }
   // }
   render() {
-    const { heros, curHeroIndex } = this.state;
+    const { curHero, preStep, nextStep } = this.props;
+    const heros = this.heros;
     return (
-      <div className="deckchoose">
-        <div className="deckchoose-heros">
-          <h3>选择英雄</h3>
-          <div className="deckchoose-heros-container">
+      <div className="newdeck-heros-wrap">
+        <Header back="true" more="true" title="新建套牌" bgColor="#2b2b2b" position="absolute" />
+        <div className="newdeck-heros">
+          <div className="newdeck-heros-container">
             <button onClick={this.onIndexChange.bind(this, 'left')} style={{ left: 0 }}>
               <Icon iconCode="&#xe697;" width="0.4rem" height="0.6rem" />
             </button>
@@ -135,7 +138,7 @@ class Deckchoose extends Component {
                     zIndex: e.zIndex
                   };
                   return (
-                    <li style={style} key={index} onClick={this.indexChange.bind(this, index + 1)} className={(curHeroIndex - 1) === index ? 'active' : null}>
+                    <li style={style} key={index} onClick={this.indexChange.bind(this, index + 1)} className={(curHero - 1) === index ? 'active' : null}>
                       <img width={`${e.width}%`} height={`${e.height}%`} src={e.src} role="presentation" />
                     </li>
                   );
@@ -143,11 +146,11 @@ class Deckchoose extends Component {
               }
             </ul>
           </div>
-          <button className="btn">下一步</button>
+          <Button setp={1} nextStep={nextStep} preStep={preStep} />
         </div>
       </div>
     );
   }
 }
 
-export default Deckchoose;
+export default Heros;
